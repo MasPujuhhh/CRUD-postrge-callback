@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD users</title>
+</head>
+<body>
+    <h1>Users Table</h1>
+    <table border="1">
+        <thead>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            <% for (var i=0; i< data.length; i++){ %>
+                <tr>
+                    <td><%= (i + 1) %></td>
+                    <td><%= data[i].name %></td>
+                    <td><%= data[i].age %></td>
+                    <td><%= data[i].email %></td>
+                    <td>
+                        <a href="users/delete/<%= data[i].id %>" class="btn btn-warning">Delete</a>
+                        
+                    </td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+    <form action="/users/add" method="POST">
+        <h5>Add Users</h5>
+        <div class="form-group">
+            <input type="text" name="name" placeholder="Nama" class="form-control" autofocus>
+        </div>
+        <div class="form-group">
+            <input type="text" name="age" placeholder="Age" class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="text" name="email" placeholder="Email" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            Simpan
+        </button>
+    </form>
+</body>
+</html>
